@@ -1,0 +1,123 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: Arial;
+    margin: 0px;
+}
+
+:root {
+    --bg: #292929;
+    --tile-color: rgb(179, 179, 179);
+}
+
+body {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 1300px;
+    width: 100%;
+    height: 100vh;
+    margin: 0px auto;
+    background: var(--bg);
+    padding: 1rem;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.grid {
+    width: 100%;
+    height: 70vh;
+    background: var(--bg);
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    gap: clamp(0.25rem, 0.5rem, 1rem);
+    padding-bottom: 1rem;
+}
+
+.tile {
+    width: auto;
+    height: auto;
+    background: var(--tile-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    border-radius: 10px;
+}
+
+/* .keyboard-grid {
+    width: 100%;
+    height: fit-content;
+    background: var(--bg);
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 0.25rem;
+    padding: 0.25rem;
+} */
+
+.keyboard-grid-row-1, .keyboard-grid-row-2, .keyboard-grid-row-3 {
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 0.25rem;
+margin: 0.1rem;
+}
+
+.keyboard-grid-row-1 {
+    width: 100%;
+}
+
+.keyboard-grid-row-2 {
+    width: 90%;
+}
+
+.keyboard-grid-row-3 {
+    width: 80%;
+}
+
+
+.keyboard-tile {
+    width: 100%;
+    aspect-ratio: 1 / 1.5;
+    background: var(--tile-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+}
+
+.submit-button {
+    width: 80%;
+    height: 4rem;
+    margin: 1rem;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
+
+.game-over {
+    visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 80vw;
+    height: 80vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: gray;
+    font-size: 2rem;
+}
+
+.on {
+    visibility: visible;
+}
