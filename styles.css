@@ -97,8 +97,8 @@ margin: 0.1rem;
 
 
 .keyboard-tile {
-    width: clamp(50px, 100px, 200px);
-    height: clamp(50px, 60px, 200px);
+    width: clamp(30px, 100px, 200px);
+    height: clamp(30px, 60px, 200px);
     /* aspect-ratio: 1 / 1.5; */
     background: var(--tile-color);
     display: flex;
