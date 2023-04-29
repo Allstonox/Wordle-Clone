@@ -554,6 +554,7 @@ function populateGrid() {
         for (var j = 0; j < columnNum; j++) {
             let tile = document.createElement("div");
             tile.classList.add('tile');
+            // tile.classList.add('shake');
             grid.appendChild(tile);
             gridArray[i][j] = tile;
             // console.log(gridArray);
@@ -694,7 +695,7 @@ submitButton.addEventListener('click', () => {
         fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${wordToGuess}`)
             .then((response) => response.json())
             .then((data) => passGuess(data, inputArray))
-            .catch((error) => console.log("Not a word"));
+            .catch((error) => shakeTiles());
     }
     else {
         console.log("too short");
@@ -705,6 +706,20 @@ function passGuess(data, inputArray) {
     console.log(typeof data[0].word);
     addGuess(inputArray);
     currentColumn = 0;
+}
+
+function shakeTiles() {
+    for (var j = 0; j < columnNum; j++) {
+        gridArray[currentRow][j].classList.toggle("shake");
+        console.log('hi');
+    }
+    setTimeout(function() {revertTiles()}, 300);
+}
+
+function revertTiles() {
+    for (var j = 0; j < columnNum; j++) {
+        gridArray[currentRow][j].classList.toggle("shake");
+    }
 }
 
 pickWord();
