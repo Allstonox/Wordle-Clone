@@ -497,6 +497,10 @@ const words = [
     "write",
     "wrong"
 ];
+
+greenColor = 'rgba(0, 255, 0, 0.1)';
+yellowColor = 'rgba(220, 255, 0, 0.2)';
+greyColor = 'grey';
 let gameOver = false;
 let gameWon = null;
 const rowNum = 6;
@@ -580,11 +584,11 @@ function addGuess(inputArray) {
         gridArray[currentRow][j].innerHTML = inputArray[j];
         for (var i = 0; i < word.length; i++) {
             if (word[i] === gridArray[currentRow][j].innerHTML && i === j) {
-                gridArray[currentRow][j].style.background = "green";
+                gridArray[currentRow][j].style.background = greenColor;
             }
             else if (word[i] === gridArray[currentRow][j].innerHTML) {
-                if (gridArray[currentRow][j].style.background != "green") {
-                    gridArray[currentRow][j].style.background = "yellow";
+                if (gridArray[currentRow][j].style.background != greenColor) {
+                    gridArray[currentRow][j].style.background = yellowColor;
                 }
             }
         }
@@ -601,12 +605,12 @@ function addGuess(inputArray) {
             for (var j = 0; j < inputArray.length; j++) {
                 for (var k = 0; k < word.length; k++) {
                     if (keysArray[i][l].innerHTML === inputArray[j] && inputArray[j] === word[j]) {
-                        keysArray[i][l].style.background = 'green';
+                        keysArray[i][l].style.background = greenColor;
                     }
-                    else if (keysArray[i][l].innerHTML === inputArray[j] && inputArray[j] === word[k] && keysArray[i][l].style.background != 'green') {
-                        keysArray[i][l].style.background = 'yellow';
+                    else if (keysArray[i][l].innerHTML === inputArray[j] && inputArray[j] === word[k] && keysArray[i][l].style.background != greenColor) {
+                        keysArray[i][l].style.background = yellowColor;
                     }
-                    else if (keysArray[i][l].innerHTML === inputArray[j] && keysArray[i][l].style.background != 'green' && keysArray[i][l].style.background != 'yellow') {
+                    else if (keysArray[i][l].innerHTML === inputArray[j] && keysArray[i][l].style.background != greenColor && keysArray[i][l].style.background != yellowColor) {
                         keysArray[i][l].style.background = 'rgb(100, 100, 100)';
                     }
                 }
@@ -645,7 +649,7 @@ function addGuess(inputArray) {
 function checkWin() {
     let greenCounter = 0;
     for (var j = 0; j < columnNum; j++) {
-        if (gridArray[currentRow][j].style.background === "green") {
+        if (gridArray[currentRow][j].style.background === greenColor) {
             greenCounter++;
         }
     }
