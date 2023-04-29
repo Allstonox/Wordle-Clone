@@ -5,6 +5,7 @@
     font-family: Arial;
     margin: 0px;
     color: white;
+    touch-action: manipulation;
 }
 
 :root {
