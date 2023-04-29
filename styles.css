@@ -6,6 +6,7 @@
     margin: 0px;
     color: white;
     touch-action: manipulation;
+    text-transform: uppercase;
 }
 
 :root {
@@ -18,6 +19,14 @@
 html,
 body {
     overflow-x: hidden;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+h3 {
+    font-size: 1.5rem;
 }
 
 body {
