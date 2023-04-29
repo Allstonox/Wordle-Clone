@@ -498,7 +498,7 @@ const words = [
     "wrong"
 ];
 
-greenColor = 'rgba(0, 255, 0, 0.1)';
+greenColor = 'rgba(187, 53, 174, 0.3)';
 yellowColor = 'rgba(220, 255, 0, 0.2)';
 greyColor = 'rgba(40, 40, 40, 1)';
 let gameOver = false;
@@ -665,13 +665,18 @@ function checkWin() {
 
 function endGame(winner) {
     let gameOverScreen = document.querySelector('.game-over');
+    let correctWord = word.join('');
     if (winner === true) {
         gameOverScreen.classList.toggle('on');
         gameOverScreen.innerHTML = 'You Won!'
     }
     else {
         gameOverScreen.classList.toggle('on');
-        gameOverScreen.innerHTML = 'You Lose!'
+        gameOverScreen.innerHTML = 
+        `<h1>You Lose!</h1>
+        <h3>Correct Word:</h3>
+        <h3>${correctWord}</h3>
+        <button class="play-again">Play Again</button>`
     }
 }
 
