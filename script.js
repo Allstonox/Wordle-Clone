@@ -578,7 +578,6 @@ function updateLetters(tileValue) {
 }
 
 function addGuess(inputArray) {
-
     // Handles adding guess to grid
     for (var j = 0; j < columnNum; j++) {
         gridArray[currentRow][j].innerHTML = inputArray[j];
@@ -653,7 +652,7 @@ function checkWin() {
             greenCounter++;
         }
     }
-    console.log(greenCounter);
+    // console.log(greenCounter);
     if (greenCounter === 5) {
         return true;
     }
@@ -668,16 +667,16 @@ function endGame(winner) {
     let correctWord = word.join('');
     if (winner === true) {
         gameOverScreen.classList.toggle('on');
-        gameOverScreen.innerHTML = 
-        `<h1>You Win!</h1>
+        gameOverScreen.innerHTML =
+            `<h1>You Win!</h1>
         <h3>Correct Word:</h3>
         <h3>${correctWord}</h3>
         <button class="play-again" onClick="window.location.reload();">Play Again</button>`
     }
     else {
         gameOverScreen.classList.toggle('on');
-        gameOverScreen.innerHTML = 
-        `<h1>You Lose!</h1>
+        gameOverScreen.innerHTML =
+            `<h1>You Lose!</h1>
         <h3>Correct Word:</h3>
         <h3>${correctWord}</h3>
         <button class="play-again" onClick="window.location.reload();">Play Again</button>`
@@ -691,14 +690,23 @@ submitButton.addEventListener('click', () => {
         for (var j = 0; j < columnNum; j++) {
             inputArray[j] = gridArray[currentRow][j].innerHTML;
         }
-        addGuess(inputArray);
-        currentColumn = 0;
+        let wordToGuess = inputArray.join('');
+        fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${wordToGuess}`)
+            .then((response) => response.json())
+            .then((data) => passGuess(data, inputArray))
+            .catch((error) => console.log("Not a word"));
     }
     else {
         console.log("too short");
     }
-    // console.log(inputArray);
 });
+
+function passGuess(data, inputArray) {
+    console.log(typeof data[0].word);
+    addGuess(inputArray);
+    currentColumn = 0;
+}
+
 pickWord();
 createGrid();
 populateGrid();
