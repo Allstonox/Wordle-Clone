@@ -676,7 +676,7 @@ function endGame(winner) {
         `<h1>You Lose!</h1>
         <h3>Correct Word:</h3>
         <h3>${correctWord}</h3>
-        <button class="play-again">Play Again</button>`
+        <button class="play-again" onClick="window.location.reload();">Play Again</button>`
     }
 }
 
