@@ -29,7 +29,7 @@ body {
     height: 100%;
     margin: 0px auto;
     background: var(--bg);
-    padding: 1rem;
+    padding: 0rem 1rem;
     /* overflow-y: hidden; */
 }
 
@@ -41,7 +41,7 @@ body {
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(6, 1fr);
     gap: clamp(0.25rem, 0.5rem, 1rem);
-    padding-bottom: 1rem;
+    padding: 1rem 0rem;
 }
 
 .tile {
@@ -114,8 +114,8 @@ body {
 
 
 .keyboard-tile {
-    width: clamp(20px, 50px, 100px);
-    height: clamp(30px, 50px, 100px);
+    width: 100%;
+    height: clamp(30px, 60px, 100px);
     /* aspect-ratio: 1 / 1.5; */
     background: var(--tile-color);
     display: flex;
