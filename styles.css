@@ -84,21 +84,21 @@ margin: 0.1rem;
 }
 
 .keyboard-grid-row-1 {
-    width: 100%;
-}
-
-.keyboard-grid-row-2 {
     width: 90%;
 }
 
-.keyboard-grid-row-3 {
+.keyboard-grid-row-2 {
     width: 80%;
+}
+
+.keyboard-grid-row-3 {
+    width: 70%;
 }
 
 
 .keyboard-tile {
-    width: clamp(30px, 100px, 200px);
-    height: clamp(30px, 60px, 200px);
+    width: clamp(25px, 100px, 200px);
+    height: clamp(25px, 60px, 200px);
     /* aspect-ratio: 1 / 1.5; */
     background: var(--tile-color);
     display: flex;
