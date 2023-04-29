@@ -541,7 +541,7 @@ function createKeyboardGrid() {
             keyTile.innerHTML = keyboardGrid[i][j];
             keyboardGridObj[i].appendChild(keyTile);
             keyTile.addEventListener('click', (e) => {
-                console.log(e.target.innerHTML);
+                // console.log(e.target.innerHTML);
                 updateLetters(e.target.innerHTML);
             });
         }
@@ -698,7 +698,7 @@ submitButton.addEventListener('click', () => {
             .catch((error) => shakeTiles());
     }
     else {
-        console.log("too short");
+        console.log("Too Short");
     }
 });
 
@@ -711,7 +711,7 @@ function passGuess(data, inputArray) {
 function shakeTiles() {
     for (var j = 0; j < columnNum; j++) {
         gridArray[currentRow][j].classList.toggle("shake");
-        console.log('hi');
+        // console.log('hi');
     }
     setTimeout(function() {revertTiles()}, 300);
 }
