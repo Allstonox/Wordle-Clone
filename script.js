@@ -668,7 +668,11 @@ function endGame(winner) {
     let correctWord = word.join('');
     if (winner === true) {
         gameOverScreen.classList.toggle('on');
-        gameOverScreen.innerHTML = 'You Won!'
+        gameOverScreen.innerHTML = 
+        `<h1>You Win!</h1>
+        <h3>Correct Word:</h3>
+        <h3>${correctWord}</h3>
+        <button class="play-again" onClick="window.location.reload();">Play Again</button>`
     }
     else {
         gameOverScreen.classList.toggle('on');
