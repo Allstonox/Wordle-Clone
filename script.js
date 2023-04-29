@@ -500,7 +500,7 @@ const words = [
 
 greenColor = 'rgba(0, 255, 0, 0.1)';
 yellowColor = 'rgba(220, 255, 0, 0.2)';
-greyColor = 'grey';
+greyColor = 'rgba(40, 40, 40, 1)';
 let gameOver = false;
 let gameWon = null;
 const rowNum = 6;
@@ -611,7 +611,7 @@ function addGuess(inputArray) {
                         keysArray[i][l].style.background = yellowColor;
                     }
                     else if (keysArray[i][l].innerHTML === inputArray[j] && keysArray[i][l].style.background != greenColor && keysArray[i][l].style.background != yellowColor) {
-                        keysArray[i][l].style.background = 'rgb(100, 100, 100)';
+                        keysArray[i][l].style.background = greyColor;
                     }
                 }
             }
