@@ -90,6 +90,29 @@ body {
     z-index: -1;
 }
 
+.shake {
+    animation: shakes 0.2s linear infinite;
+    animation-iteration-count: infinite;
+}
+
+@keyframes shakes{
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(20deg);
+    }
+    50% {
+        transform: rotate(0deg);
+    }
+    75% {
+        transform: rotate(-20deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
 .keyboard-grid {
     width: 100%;
     height: 25%;
