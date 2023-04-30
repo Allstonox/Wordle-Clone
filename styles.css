@@ -12,8 +12,8 @@
 :root {
     --bg: #0c0b10;
     --tile-color: rgb(100, 100, 100);
-    --accent: #E99FF4;
-    --accent-2: #977397;
+    --accent: white;
+    --accent-2: #2e5612;
 }
 
 html,
