@@ -498,8 +498,8 @@ const words = [
     "wrong"
 ];
 
-greenColor = 'rgba(187, 53, 174, 0.3)';
-yellowColor = 'rgba(220, 255, 0, 0.2)';
+greenColor = 'rgba(68, 136, 20, 0.6)';
+yellowColor = 'rgba(216, 172, 29, 0.6)';
 greyColor = 'rgba(40, 40, 40, 1)';
 let gameOver = false;
 let gameWon = null;
@@ -711,14 +711,16 @@ submitButton.addEventListener('click', () => {
 
 function passGuess(data, inputArray) {
     // console.log(typeof data[0].word);
-    addGuess(inputArray);
-    currentColumn = 0;
+    if(typeof data[0].word === 'string') {
+        addGuess(inputArray);
+        currentColumn = 0;
+    }
 }
 
 function shakeTiles() {
     for (var j = 0; j < columnNum; j++) {
         gridArray[currentRow][j].classList.toggle("shake");
-        // console.log('hi');
+        // console.log('shake');
     }
     setTimeout(function() {revertTiles()}, 300);
 }
