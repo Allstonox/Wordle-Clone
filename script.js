@@ -287,7 +287,6 @@ const words = [
     "paper",
     "party",
     "peace",
-    "phase",
     "phone",
     "photo",
     "piece",
@@ -505,6 +504,9 @@ const keyboardGridRowTwo = ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'];
 const keyboardGridRowThree = ['z', 'x', 'c', 'v', 'b', 'n', 'm', '&#8592;'];
 const keyboardGrid = [keyboardGridRowOne, keyboardGridRowTwo, keyboardGridRowThree];
 
+const gameStartWindow = document.querySelector('.game-start');
+const gameOverScreen = document.querySelector('.game-over');
+const startGame = document.querySelector('.start-game');
 const grid = document.querySelector('.grid');
 const submitButton = document.querySelector('.submit-button');
 const textInput = document.querySelector('.input-message');
@@ -512,6 +514,10 @@ const keyboardGridOne = document.querySelector('.keyboard-grid-row-1');
 const keyboardGridTwo = document.querySelector('.keyboard-grid-row-2');
 const keyboardGridThree = document.querySelector('.keyboard-grid-row-3');
 const keyboardGridObj = [keyboardGridOne, keyboardGridTwo, keyboardGridThree];
+
+startGame.addEventListener('click', (e) => {
+    gameStartWindow.classList.toggle('off');
+});
 
 function pickWord() {
     let wordPicked = words[Math.floor(Math.random() * words.length)];
@@ -625,7 +631,7 @@ function addGuess(inputArray) {
             gameOver = true;
             gameWon = true;
             endGame(gameWon);
-            console.log("You Won!");
+            // console.log("You Won!");
         }
     }
     else if (currentRow >= 5) {
@@ -633,13 +639,13 @@ function addGuess(inputArray) {
             gameOver = true;
             gameWon = false;
             endGame(gameWon);
-            console.log("You Lose");
+            // console.log("You Lose");
         }
         else {
             gameOver = true;
             gameWon = true;
             endGame(gameWon);
-            console.log("You Won!");
+            // console.log("You Won!");
         }
     }
     //Changes focus to next row
@@ -663,15 +669,14 @@ function checkWin() {
 }
 
 function endGame(winner) {
-    let gameOverScreen = document.querySelector('.game-over');
     let correctWord = word.join('');
     if (winner === true) {
         gameOverScreen.classList.toggle('on');
         gameOverScreen.innerHTML =
             `<h1>You Win!</h1>
-        <h3>Correct Word:</h3>
-        <h3>${correctWord}</h3>
-        <button class="play-again" onClick="window.location.reload();">Play Again</button>`
+        <h3>Correct Word: ${correctWord}</h3>
+        <h3>Number of guesses: ${currentRow + 1}</h3>
+        <button class="play-again" onClick="restartGame();">Play Again</button>`
     }
     else {
         gameOverScreen.classList.toggle('on');
@@ -679,7 +684,7 @@ function endGame(winner) {
             `<h1>You Lose!</h1>
         <h3>Correct Word:</h3>
         <h3>${correctWord}</h3>
-        <button class="play-again" onClick="window.location.reload();">Play Again</button>`
+        <button class="play-again" onClick="restartGame();">Play Again</button>`
     }
 }
 
@@ -703,7 +708,7 @@ submitButton.addEventListener('click', () => {
 
 function passGuess(data, inputArray) {
     // console.log(typeof data[0].word);
-    if(typeof data[0].word === 'string') {
+    if (typeof data[0].word === 'string') {
         addGuess(inputArray);
         currentColumn = 0;
     }
@@ -714,13 +719,46 @@ function shakeTiles() {
         gridArray[currentRow][j].classList.toggle("shake");
         // console.log('shake');
     }
-    setTimeout(function() {revertTiles()}, 300);
+    setTimeout(function () { revertTiles() }, 300);
 }
 
 function revertTiles() {
     for (var j = 0; j < columnNum; j++) {
         gridArray[currentRow][j].classList.toggle("shake");
     }
+}
+
+function restartGame() {
+    for (var j = 0; j < rowNum; j++) {
+        for (var i = 0; i < columnNum; i++) {
+            gridArray[j][i].innerHTML = '';
+            gridArray[j][i].style.background = 'var(--tile-color)';
+        }
+    }
+    for (var j = 0; j < columnNum; j++) {
+        gridArray[currentRow][j].classList.remove('focus');
+        gridArray[0][j].classList.add('focus');
+    }
+    // for (var i = 0; i < keyboardGrid.length; i++) {
+    //     for (var j = 0; j < keyboardGrid[i].length; j++) {
+    //         keyboardGrid[i][j].style.background = "var(--key-tile-color)";
+    //     }
+    //     // console.log(gridArray[i]);
+    // }
+    let keysOne = Array.from(document.querySelector('.keyboard-grid-row-1').children);
+    let keysTwo = Array.from(document.querySelector('.keyboard-grid-row-2').children);
+    let keysThree = Array.from(document.querySelector('.keyboard-grid-row-3').children);
+    let keysArray = [keysOne, keysTwo, keysThree];
+    for (var i = 0; i < keysArray.length; i++) {
+        // console.log(keysArray);
+        for (var l = 0; l < keysArray[i].length; l++) {
+            keysArray[i][l].style.background = "var(--key-tile-color)";
+        }
+    }
+    currentColumn = 0;
+    currentRow = 0;
+    gameOverScreen.classList.toggle('on');
+    pickWord();
 }
 
 pickWord();
