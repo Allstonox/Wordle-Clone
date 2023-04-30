@@ -5,7 +5,279 @@ const words = [
     "abuse",
     "actor",
     "acute",
-    "admit",
+    "admit",*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    font-family: Arial;
+    margin: 0px;
+    color: white;
+    touch-action: manipulation;
+    text-transform: uppercase;
+}
+
+:root {
+    --bg: #0c0b10;
+    --tile-color: rgba(255, 255, 255, 0.1);
+    --key-tile-color: rgb(100, 100, 100);
+    --accent: white;
+    --accent-2: #2e5612;
+}
+
+html,
+body {
+    overflow-x: hidden;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+p {
+    font-size: 1rem;
+}
+
+body {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 800px;
+    width: 100%;
+    height: 90vh;
+    margin: 0px auto;
+    background: var(--bg);
+    padding: 0rem 1rem;
+    /* overflow-y: hidden; */
+}
+
+.grid {
+    width: 100%;
+    height: 65%;
+    background: var(--bg);
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    gap: 0.25rem;
+    padding: 1rem 0rem;
+}
+
+.tile {
+    position: relative;
+    width: auto;
+    height: auto;
+    background: var(--tile-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    border-radius: 0px;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    overflow: hidden;
+    border: solid 1px rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.5);
+}
+
+.focus::before {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    top: 155%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--accent);
+    opacity: 0.8;
+    -webkit-filter: blur(10px) drop-shadow(0px 0px 10px var(--accent)) drop-shadow(0px 0px 20px var(--accent));
+    ;
+    filter: blur(10px) drop-shadow(0px 0px 10px var(--accent)) drop-shadow(0px 0px 20px var(--accent));
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.shake {
+    animation: shakes 0.2s linear infinite;
+    animation-iteration-count: infinite;
+}
+
+@keyframes shakes{
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(20deg);
+    }
+    50% {
+        transform: rotate(0deg);
+    }
+    75% {
+        transform: rotate(-20deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.keyboard-grid {
+    width: 100%;
+    height: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.keyboard-grid-row-1,
+.keyboard-grid-row-2,
+.keyboard-grid-row-3 {
+    width: 100%;
+    height: 33%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.25rem;
+    margin: 0.1rem;
+}
+
+.keyboard-grid-row-1 {
+    width: 100%;
+}
+
+.keyboard-grid-row-2 {
+    width: 90%;
+}
+
+.keyboard-grid-row-3 {
+    width: 80%;
+}
+
+
+.keyboard-tile {
+    width: 100%;
+    height: 100%;
+    /* aspect-ratio: 1 / 1.5; */
+    background: var(--key-tile-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    padding: 0px;
+    /* v Stops double-tap to zoom on mobile v */
+    touch-action: manipulation;
+}
+
+.submit-section {
+    display: flex;
+    justify-content: center;
+    align-items: first baseline;
+    width: 100%;
+    height: 10%;
+}
+
+.submit-button {
+    width: 80%;
+    height: 60%;
+    margin: 1rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    background: var(--accent-2);
+    overflow: hidden;
+    border: solid 1px rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.5);
+}
+
+.game-start {
+    visibility: visible;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    gap: 1rem;
+    width: 90%;
+    height: 80vh;
+    padding: 1rem;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(100, 100, 100, 1);
+    font-size: 2rem;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: solid 2px white;
+    border-radius: 10px;
+}
+
+.game-start h3, p {
+    text-align: left;
+}
+
+p {
+align-self: baseline;
+}
+
+.game-over {
+    visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    gap: 1rem;
+    width: 90%;
+    height: fit-content;
+    padding: 2rem;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(100, 100, 100, 0.7);
+    font-size: 2rem;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: solid 2px white;
+    border-radius: 10px;
+}
+
+.on {
+    visibility: visible;
+}
+
+.off {
+    visibility: hidden;
+}
+
+.play-again, .start-game {
+    width: 80%;
+    height: 3rem;
+    margin: 1rem;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    background: var(--accent-2);
+    overflow: hidden;
+    border: solid 1px rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.5);
+}
     "adopt",
     "adult",
     "after",
