@@ -517,6 +517,11 @@ const keyboardGridObj = [keyboardGridOne, keyboardGridTwo, keyboardGridThree];
 
 startGame.addEventListener('click', (e) => {
     gameStartWindow.classList.toggle('off');
+    pickWord();
+    createGrid();
+    populateGrid();
+    createKeyboardGrid();
+    submitButton.classList.toggle('off');
 });
 
 function pickWord() {
@@ -760,9 +765,4 @@ function restartGame() {
     gameOverScreen.classList.toggle('on');
     pickWord();
 }
-
-pickWord();
-createGrid();
-populateGrid();
-createKeyboardGrid();
 
