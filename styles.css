@@ -202,10 +202,10 @@ body {
     align-items: center;
     flex-direction: column;
     position: absolute;
-    gap: 2rem;
+    gap: 1rem;
     width: 90%;
-    height: 85vh;
-    padding: 2rem;
+    height: 80vh;
+    padding: 1rem;
     text-align: center;
     top: 50%;
     left: 50%;
