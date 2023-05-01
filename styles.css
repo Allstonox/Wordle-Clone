@@ -2,19 +2,27 @@
 *::before,
 *::after {
     box-sizing: border-box;
-    font-family: Arial;
+    font-family: 'Ubuntu Mono', monospace;
     margin: 0px;
     color: white;
     touch-action: manipulation;
     text-transform: uppercase;
+    font-weight: 600;
 }
 
 :root {
     --bg: #0c0b10;
     --tile-color: rgba(255, 255, 255, 0.1);
-    --key-tile-color: rgb(100, 100, 100);
-    --accent: white;
-    --accent-2: #2e5612;
+    --key-tile-color: #591DA9;
+    --backdrop: white;
+    --accent-1: rgb(109, 169, 29);
+    --accent-2: #a9591d;
+    --yellow: rgb(216, 172, 29);
+    --gradient: linear-gradient(#591DA9, #b3b3b3);
+}
+
+html {
+    background: var(--gradient);
 }
 
 html,
@@ -46,9 +54,24 @@ body {
     align-items: center;
     max-width: 800px;
     width: 100%;
+    height: 100vh;
+    margin: 0px auto;
+    background: transparent;
+    padding: 0rem 1rem;
+    /* overflow-y: hidden; */
+}
+
+.content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 800px;
+    width: 100%;
     height: 90vh;
     margin: 0px auto;
-    background: var(--bg);
+    background: transparent;
     padding: 0rem 1rem;
     /* overflow-y: hidden; */
 }
@@ -56,7 +79,7 @@ body {
 .grid {
     width: 100%;
     height: 65%;
-    background: var(--bg);
+    background: transparent;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(6, 1fr);
@@ -89,11 +112,11 @@ body {
     top: 155%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: var(--accent);
+    background: var(--backdrop);
     opacity: 0.8;
-    -webkit-filter: blur(10px) drop-shadow(0px 0px 10px var(--accent)) drop-shadow(0px 0px 20px var(--accent));
+    -webkit-filter: blur(10px) drop-shadow(0px 0px 10px var(--backdrop)) drop-shadow(0px 0px 20px var(--backdrop));
     ;
-    filter: blur(10px) drop-shadow(0px 0px 10px var(--accent)) drop-shadow(0px 0px 20px var(--accent));
+    filter: blur(10px) drop-shadow(0px 0px 10px var(--backdrop)) drop-shadow(0px 0px 20px var(--backdrop));
     border-radius: 50%;
     z-index: -1;
 }
@@ -124,6 +147,7 @@ body {
 .keyboard-grid {
     width: 100%;
     height: 25%;
+    background: transparent;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -189,7 +213,7 @@ body {
     cursor: pointer;
     font-size: 1.5rem;
     text-transform: uppercase;
-    background: var(--accent-2);
+    background: var(--accent-1);
     overflow: hidden;
     border: solid 1px rgba(255, 255, 255, 0.1);
     box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.5);
@@ -204,16 +228,14 @@ body {
     position: absolute;
     gap: 1rem;
     width: 90%;
-    height: 80vh;
-    padding: 1rem;
+    height: fit-content;
+    padding: 2rem;
     text-align: center;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: rgba(100, 100, 100, 1);
+    background: #591DA9;
     font-size: 2rem;
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
     border: solid 2px white;
     border-radius: 10px;
 }
@@ -241,10 +263,10 @@ align-self: baseline;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: rgba(100, 100, 100, 0.7);
+    background: rgba(5, 5, 5, 0.6);
     font-size: 2rem;
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border: solid 2px white;
     border-radius: 10px;
 }
@@ -266,7 +288,7 @@ align-self: baseline;
     cursor: pointer;
     font-size: 1.5rem;
     text-transform: uppercase;
-    background: var(--accent-2);
+    background: var(--accent-1);
     overflow: hidden;
     border: solid 1px rgba(255, 255, 255, 0.1);
     box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.5);
