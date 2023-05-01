@@ -489,9 +489,10 @@ const words = [
     "wrong"
 ];
 
-greenColor = 'rgba(68, 136, 20, 0.6)';
-yellowColor = 'rgba(216, 172, 29, 0.6)';
-greyColor = 'rgba(40, 40, 40, 1)';
+// const colors = getComputedStyle(document.body);
+const greenColor = 'rgb(109, 169, 29)'
+const yellowColor = 'rgb(216, 172, 29)';
+const greyColor = 'rgb(80, 80, 80)';
 let gameOver = false;
 let gameWon = null;
 const rowNum = 6;
