@@ -489,7 +489,6 @@ const words = [
     "wrong"
 ];
 
-// const colors = getComputedStyle(document.body);
 const greenColor = 'rgb(109, 169, 29)'
 const yellowColor = 'rgb(216, 172, 29)';
 const greyColor = 'rgb(80, 80, 80)';
