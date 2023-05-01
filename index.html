@@ -6,31 +6,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap" rel="stylesheet">
     <title>Wordle Clone</title>
 </head>
 
 <body>
-    <div class="grid"></div>
-    <div class="keyboard-grid">
-        <div class="keyboard-grid-row-1"></div>
-        <div class="keyboard-grid-row-2"></div>
-        <div class="keyboard-grid-row-3"></div>
+    <div class="content">
+        <div class="grid"></div>
+        <div class="keyboard-grid">
+            <div class="keyboard-grid-row-1"></div>
+            <div class="keyboard-grid-row-2"></div>
+            <div class="keyboard-grid-row-3"></div>
+        </div>
+        <div class="submit-section">
+            <button class="submit-button off">Submit Guess</button>
+        </div>
+        <div class="game-start">
+            <h2>Welcome to WORDLE<br><span style="color:var(--accent-2)">SILLY GOOSE EDITION</span></h2>
+            <h3>INSTRUCTIONS:</h3>
+            <p> 1. Try to guess the <span style="color:var(--accent-2); font-weight: 600;">secret word</span>! Enter any
+                5-letter word and press submit
+                to see the results. Remember, only real words will be accepted as guesses.
+            <p>2. Letters will be highlighted with
+                different colors: <span style="color: grey">gray for incorrect letter</span>, <span style="color: var(--yellow)">yellow for correct letter in the wrong spot</span>, <span style="color: var(--accent-1)">green for
+                    correct letter in the right spot</span>.</p>
+            <p>3. Use the colors to narrow down your future guesses.</p>
+            <button class="start-game">Let's Play!</button>
+        </div>
+        <div class="game-over"></div>
     </div>
-    <div class="submit-section">
-        <button class="submit-button off">Submit Guess</button>
-    </div>
-    <div class="game-start">
-        <h2>Welcome to WORDLE,<br><span style="color:rgb(151, 22, 22)">SILLY GOOSE EDITION</span></h2>
-        <h3>INSTRUCTIONS:</h3>
-        <p> 1. Try to guess the <span style="color: rgb(151, 22, 22); font-weight: 600;">secret word</span>! Enter any 5-letter word and press submit
-            to see the results. Remember, only real words will be accepted as guesses.
-        <p>2. Letters will be highlighted with
-            different colors: gray for incorrect letter, yellow for correct letter in the wrong spot, and green for
-            correct letter in the right spot.</p>
-        <p>3. Use the colors to narrow down your future guesses.</p>
-        <button class="start-game">Let's Play!</button>
-    </div>
-    <div class="game-over"></div>
     <script src="script.js"></script>
 </body>
 
